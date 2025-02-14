@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,7 +12,7 @@
             height: 100vh;
             background-color: #f8f0f8;
             margin: 0;
-            font-family: 'Aesthetic', sans-serif;
+            font-family: 'Arial', sans-serif;
             overflow: hidden;
             position: relative;
         }
@@ -30,7 +30,6 @@
             left: 50vw;
             transform: translate(-50%, -50%) scale(2);
             opacity: 1;
-            will-change: transform, opacity;
             transition: transform 2s ease-out, opacity 1.5s ease-out;
         }
 
@@ -52,7 +51,6 @@
             margin: 10px;
             display: inline-block;
             cursor: pointer;
-            position: relative;
         }
 
         .button:hover {
@@ -101,11 +99,20 @@
             happyMsg.style.display = "block";
             happyMsg.style.opacity = "0";
             happyMsg.style.transition = "opacity 1s ease-in-out";
+
             setTimeout(() => {
                 happyMsg.style.opacity = "1";
+
+                // Try opening Instagram using the intent (best for Android)
+                setTimeout(() => {
+                    window.location.href = "intent://www.instagram.com/karthik_jammula_/#Intent;package=com.instagram.android;scheme=https;end;";
+                }, 1000);
+
+                // Fallback to web version if Instagram app doesn’t open
                 setTimeout(() => {
                     window.location.href = "https://www.instagram.com/karthik_jammula_";
-                }, 2000);
+                }, 3000);
+
             }, 100);
         });
 
